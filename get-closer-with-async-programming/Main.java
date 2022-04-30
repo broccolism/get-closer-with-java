@@ -10,6 +10,11 @@ public class Main {
         Shops.doSomething();
     }
 
+    public static void secondMain(String[] args) {
+        Shop shop = new Shop("broccoli shop");
+        System.out.println(shop.getPrice("coli"));
+    }
+
     public static void firstMain(String[] args) {
         // AsyncBeforeJava8.doSomething();
 

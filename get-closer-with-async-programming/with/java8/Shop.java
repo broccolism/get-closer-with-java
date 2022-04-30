@@ -1,11 +1,11 @@
 package with.java8;
 
-import java.util.List;
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 
 public class Shop {
+    private final Random random = new Random();
     private String name;
 
     public Shop(String name) {
@@ -20,8 +20,11 @@ public class Shop {
         System.out.println("Haha! I'm doing something else now...");
     }
 
-    public double getPrice(String product) {
-        return calculatePrice(product);
+    public String getPrice(String product) {
+        double price = calculatePrice(product);
+        Discount.Code code = Discount.Code.values()[
+            random.nextInt(Discount.Code.values().length)];
+        return String.format("%s:%.2f:%s", name, price, code);
     }
 
     public Future<Double> getPriceAsync(String product) {
@@ -40,10 +43,10 @@ public class Shop {
 
     private double calculatePrice(String product) {
         delay();
-        return (new Random()).nextDouble() * product.charAt(0) + product.charAt(1);
+        return random.nextDouble() * product.charAt(0) + product.charAt(1);
     }
 
-    private static void delay() {
+    public static void delay() {
         try {
             Thread.sleep(1000L);
         } catch (InterruptedException e) {
