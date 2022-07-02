@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.broccolism.multi.module.service.MessageService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("/message")
 @RequiredArgsConstructor
@@ -17,6 +19,7 @@ public class AdminMessageController {
 
     @GetMapping("/notification")
     public String getNotificationMessage() {
+        log.debug("@@@@@@@@@@@@@@@ admin message controller");
         return messageService.getNotificationMessage();
     }
 
