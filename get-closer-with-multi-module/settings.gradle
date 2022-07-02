@@ -1,4 +1,5 @@
 rootProject.name = 'get-closer-with-multi-module'
 include 'shared'
 include 'admin'
+include 'developer'
 
