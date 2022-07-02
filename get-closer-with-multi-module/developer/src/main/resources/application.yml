@@ -1,0 +1,6 @@
+# Base Spring Configuration
+debug: true
+
+## Server Config
+server:
+  port: 10001
